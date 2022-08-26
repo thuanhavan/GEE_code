@@ -1,0 +1,14 @@
+## export iteration
+
+for(var a = 0; a < 33; a++){
+  var fil = xROI.filterMetadata('Id', 'equals', a+1)
+  var expImg = bandAll.clip(fil)
+  // print(a)
+  Export.image.toDrive({
+    image: expImg,//ee.Image(listOfImages.get(a)).clip(fil),
+    description: 'Image'+'_'+a,
+    folder: 'soilEC/tiling',
+    maxPixels: 8030040147504, 
+    scale: 10
+  })
+}
